@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Assets</title>
+  </head>
+  <body>
+    <form action="/" method="post">
+      <input type="text" name="crypto" placeholder="Cryptocurrency" />
+      <button type="submit">Search</button>
+    </form>
+    <% if (json.length > 0) { %>
+      <%  json.forEach((coin) => { %>
+        <div class="crypto-container">
+          <img src="<%= coin.image %>" alt="<%= coin.name %>" />
+          <h3><%= coin.name %></h3>
+          <p><%= coin.symbol %></p>
+          <p><%= coin.current_price %></p>
+        </div>
+      <% }) %>
+    <% } %>
+  </body>
+</html>
