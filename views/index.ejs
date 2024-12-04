@@ -3,22 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crypto Assets</title>
+    <title>Crypto Vault</title>
   </head>
   <body>
+    <nav>
+      <h1>Crypto Vault</h1>
+      <a href="/">Home</a>
+      <a href="/vault">Vault</a>
+      <a href="/settings">Settings</a>
+    </nav>
     <form action="/" method="post">
-      <input type="text" name="crypto" placeholder="Cryptocurrency" />
-      <button type="submit">Search</button>
+      <input type="text" name="symbol" placeholder="Symbol" />
+      <button class="search-button" type="submit">Search</button>
     </form>
-    <% if (json.length > 0) { %>
+    <% if (json) { %>
       <%  json.forEach((coin) => { %>
-        <div class="crypto-container">
-          <img src="<%= coin.image %>" alt="<%= coin.name %>" />
-          <h3><%= coin.name %></h3>
-          <p><%= coin.symbol %></p>
-          <p><%= coin.current_price %></p>
+        <div id="<%= coin.symbol %>" class="crypto-card"></div>
+          <img class="crypto-image" src="<%= coin.image %>" alt="<%= coin.name %>" />
+          <h3 class="crypto-name"><%= coin.name %></h3>
+          <p class="crypto-symbol"><%= coin.symbol %></p>
+          <p class="crypto-price">$<%= coin.current_price %></p>
+          <form action="/save-item" method="post">
+            <input type="hidden" name="symbol" value="<%= coin.symbol %>" />
+            <button type="submit" class="save-button">SaveSvg</button>
+          </form>
         </div>
       <% }) %>
+    <% } %>
+    <% if (coin) { %>
+      <div id="<%= coin.symbol %>" class="crypto-card"></div>
+        <img class="crypto-image" src="<%= coin.image %>" alt="<%= coin.name %>" />
+        <h3 class="crypto-name"><%= coin.name %></h3>
+        <p class="crypto-symbol"><%= coin.symbol %></p>
+        <p class="crypto-price">$<%= coin.current_price %></p>
+        <p class="crypto-market-rank">Market Rank: <%= coin.market_cap_rank %></p>
+        <p class="crypto-high">High 24h: $<%= coin.high_24h %></p>
+        <p class="crypto-low">Low 24h: $<%= coin.low_24h %></p>
+      </div>
     <% } %>
   </body>
 </html>
