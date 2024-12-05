@@ -8,6 +8,4 @@ indexRouter.post('/save-item', indexController.saveItem)
 
 indexRouter.get('/:symbol', indexController.symbolGet)
 
-module.exports = {
-  indexRouter,
-}
+module.exports = indexRouter

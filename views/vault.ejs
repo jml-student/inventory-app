@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault</title>
+</head>
+<body>
+    <h1>Your Vault</h1>
+    <% if (vault) { %>
+      <% vault.forEach((coin) => { %>
+        <div id="<%= coin.symbol %>" class="crypto-card"></div>
+          <img class="crypto-image" src="<%= coin.image %>" alt="<%= coin.name %>" />
+          <h3 class="crypto-name"><%= coin.name %></h3>
+          <p class="crypto-symbol"><%= coin.symbol %></p>
+          <p class="crypto-price">$<%= coin.current_price %></p>
+        </div>
+      <% }) %>
+    <% } %>
+</body>
+</html>
