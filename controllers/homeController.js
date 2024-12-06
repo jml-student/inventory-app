@@ -1,13 +1,18 @@
 const query = require('../db/queries')
 
 async function homeGet(req, res) {
-  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=${process.env.APIKEY}`
-  const options = { method: 'GET', headers: { accept: 'application/json' } }
+  const userId = req.cookies.userId
+  if (userId) {
+    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=${process.env.APIKEY}`
+    const options = { method: 'GET', headers: { accept: 'application/json' } }
 
-  const response = await fetch(url, options)
-  const json = await response.json()
+    const response = await fetch(url, options)
+    const json = await response.json()
 
-  res.render('home', { userId: req.cookies.userId, json: json, coin: null })
+    res.render('home', { userId: req.cookies.userId, json: json, coin: null })
+  } else {
+    res.redirect('/')
+  }
 }
 
 function homePost(req, res) {

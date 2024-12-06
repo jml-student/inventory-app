@@ -12,6 +12,18 @@ async function insertUser(username, password) {
   }
 }
 
+async function getUser(id) {
+  const SQL = `
+    SELECT * FROM users WHERE username = $1;
+  `
+  try {
+    const result = await pool.query(SQL, [id])
+    return result.rows[0]
+  } catch (err) {
+    console.error('Error getting user:', err)
+  }
+}
+
 async function insertSymbol(userId, symbol) {
   const SQL = `
         INSERT INTO favourites (user_id, coin_symbol)
@@ -41,4 +53,5 @@ module.exports = {
   insertUser,
   insertSymbol,
   getFavourites,
+  getUser,
 }

@@ -23,7 +23,7 @@ const validateUser = [
 ]
 
 function registerGet(req, res) {
-  res.render('register')
+  res.render('register', { errors: [], data: {} })
 }
 
 const registerPost = [
