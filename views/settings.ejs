@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Vault</title>
+  </head>
+  <body>
+    <nav>
+        <h1>Settings</h1>
+        <a href="/home">Home</a>
+        <a href="/vault/<%= userId %>">Vault</a>
+        <a href="/settings">Settings</a>
+        <a href="/">Logout</a>
+      </nav>
+    <% if (msg.length > 0) { %>
+      <p>
+        <% msg.forEach((message) => { %>
+          <li><%= message %></li>
+        <% }) %>
+      </p>
+    <% } %>
+    <form action="/settings" method="post">
+      <label for="settingsUsername">Username:</label>
+      <input
+        type="text"
+        id="settingsUsername"
+        value="<%= user.username %>"
+        name="settingsUsername"
+        required
+      />
+      <label for="settingsPassword">Password:</label>
+      <input
+        type="password"
+        id="settingsPassword"
+        value="<%= user.password %>"
+        name="settingsPassword"
+        required
+      />
+      <button type="submit">Change</button>
+    </form>
+    <form action="/settings/delete" method="post">
+        <label for="deleteAccount">Delete Account</label>
+        <button type="submit">SvgTrash</button>
+    </form>
+  </body>
+</html>

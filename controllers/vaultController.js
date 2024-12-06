@@ -19,7 +19,7 @@ async function getVault(req, res) {
     }
   })
 
-  res.render('vault', { vault: vault })
+  res.render('vault', { userId: userId, vault: vault })
 }
 
 module.exports = {

@@ -8,7 +8,7 @@ const indexRouter = require('./routes/indexRouter')
 const registerRouter = require('./routes/registerRouter')
 const homeRouter = require('./routes/homeRouter')
 const vaultRouter = require('./routes/vaultRouter')
-//const { settingsRouter } = require('./routes/settingsRouter')
+const { settingsRouter } = require('./routes/settingsRouter')
 
 const init = async () => {
   try {
@@ -35,4 +35,4 @@ app.use('/register', registerRouter)
 app.use('/home', homeRouter)
 app.use('/home/:symbol', homeRouter)
 app.use('/vault', vaultRouter)
-//app.use('/settings', settingsRouter)
+app.use('/settings', settingsRouter)

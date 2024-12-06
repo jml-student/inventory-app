@@ -12,9 +12,21 @@ async function insertUser(username, password) {
   }
 }
 
-async function getUser(id) {
+async function getUserWithUsername(username) {
   const SQL = `
     SELECT * FROM users WHERE username = $1;
+  `
+  try {
+    const result = await pool.query(SQL, [username])
+    return result.rows[0]
+  } catch (err) {
+    console.error('Error getting user:', err)
+  }
+}
+
+async function getUserWithId(id) {
+  const SQL = `
+    SELECT * FROM users WHERE id = $1;
   `
   try {
     const result = await pool.query(SQL, [id])
@@ -49,9 +61,34 @@ async function getFavourites(userId) {
   }
 }
 
+async function updateUser(userId, username, password) {
+  const SQL = `
+    UPDATE users SET username = $1, password = $2 WHERE id = $3;
+  `
+  try {
+    await pool.query(SQL, [username, password, userId])
+  } catch (err) {
+    console.error('Error updating user:', err)
+  }
+}
+
+async function deleteUser(userId) {
+  const SQL = `
+    DELETE FROM users WHERE id = $1;
+  `
+  try {
+    await pool.query(SQL, [userId])
+  } catch (err) {
+    console.error('Error deleting user:', err)
+  }
+}
+
 module.exports = {
   insertUser,
   insertSymbol,
   getFavourites,
-  getUser,
+  getUserWithUsername,
+  getUserWithId,
+  updateUser,
+  deleteUser,
 }

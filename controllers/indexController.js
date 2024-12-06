@@ -9,7 +9,7 @@ async function indexPost(req, res) {
   const password = req.body.password
 
   if (username && password) {
-    const user = await query.getUser(username)
+    const user = await query.getUserWithUsername(username)
     if (user) {
       if (user.username === username && user.password === password) {
         res.cookie('userId', user.id, { httpOnly: true })
