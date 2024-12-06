@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crypto Vault</title>
+    <link rel="stylesheet" href="/styles/index.css">
   </head>
   <body>
     <h1>Welcome to Crypto Vault</h1>
@@ -11,14 +12,14 @@
     <% if (errors.length > 0) { %>
       <p>
         <% errors.forEach((error) => { %>
-          <li><%= error.msg %></li>
+          <li class="error"><%= error.msg %></li>
         <% }) %>
       </p>
     <% } %>
-    <form action="/" method="post">
-      <label for="username">Username:</label>
+    <form class="login-form" action="/" method="post">
+      <label for="username">Username</label>
       <input type="text" id="username" name="username" required />
-      <label for="password">Password:</label>
+      <label for="password">Password</label>
       <input type="password" id="password" name="password" required />
       <button type="submit">Submit</button>
     </form>
