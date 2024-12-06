@@ -1,11 +1,11 @@
 const pool = require('./pool')
 
-async function insertUser() {
+async function insertUser(username, password) {
   const SQL = `
-    INSERT INTO users DEFAULT VALUES RETURNING id;
+    INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id;
   `
   try {
-    const result = await pool.query(SQL)
+    const result = await pool.query(SQL, [username, password])
     return result.rows[0].id
   } catch (err) {
     console.error('Error inserting user:', err)

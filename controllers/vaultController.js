@@ -1,7 +1,6 @@
 const query = require('../db/queries')
 
 async function getVault(req, res) {
-  console.log('getVault called')
   const userId = req.cookies.userId
 
   const favourites = await query.getFavourites(userId)
