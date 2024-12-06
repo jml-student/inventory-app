@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Fredoka:wght@300..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border-top: 1px solid rgb(126, 126, 126);
+  padding: 20px;
+}
+
+.register-form label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.register-form input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  background-color: #3c3c3c;
+  color: white;
+}
+
+.register-form button {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  background-color: #3c3c3c;
+  color: white;
+}
+
+.error {
+  color: red;
+}
+
+li {
+  list-style-type: none;
+}

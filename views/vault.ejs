@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vault</title>
+    <link rel="stylesheet" href="/styles/vault.css">
 </head>
 <body>
   <nav>
@@ -15,7 +16,7 @@
   </nav>
     <% if (vault) { %>
       <% vault.forEach((coin) => { %>
-        <div id="<%= coin.symbol %>" class="crypto-card"></div>
+        <div id="<%= coin.symbol %>" class="crypto-card">
           <img class="crypto-image" src="<%= coin.image %>" alt="<%= coin.name %>" />
           <h3 class="crypto-name"><%= coin.name %></h3>
           <p class="crypto-symbol"><%= coin.symbol %></p>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crypto Vault</title>
+    <link rel="stylesheet" href="/styles/settings.css">
   </head>
   <body>
     <nav>
@@ -16,11 +17,11 @@
     <% if (msg.length > 0) { %>
       <p>
         <% msg.forEach((message) => { %>
-          <li><%= message %></li>
+          <li class="error"><%= message %></li>
         <% }) %>
       </p>
     <% } %>
-    <form action="/settings" method="post">
+    <form  class="settings-form" action="/settings" method="post">
       <label for="settingsUsername">Username:</label>
       <input
         type="text"
@@ -39,9 +40,11 @@
       />
       <button type="submit">Change</button>
     </form>
-    <form action="/settings/delete" method="post">
+    <form  class="settings-delete-form" action="/settings/delete" method="post">
         <label for="deleteAccount">Delete Account</label>
-        <button type="submit">SvgTrash</button>
+        <button type="submit" class="delete-button">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><title>trash-can</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" /></svg>
+        </button>
     </form>
   </body>
 </html>
