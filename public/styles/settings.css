@@ -9,12 +9,32 @@ body {
   color: white;
 }
 
+.title {
+  font-size: 1.8rem;
+  margin: 10px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  padding: 10px 20px;
+  border-top: 1px solid rgb(121, 121, 121);
+  border-bottom: 1px solid rgb(121, 121, 121);
+
+  & a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
 .settings-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 300px;
-  border-top: 1px solid rgb(126, 126, 126);
   padding: 20px;
 }
 
@@ -31,16 +51,29 @@ body {
   font-size: 1.2rem;
   background-color: #3c3c3c;
   color: white;
+  outline: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #555555;
+  }
 }
 
 .settings-form button {
-  padding: 0.5rem;
+  padding: 10px 15px;
   margin-top: 1rem;
   border: none;
   border-radius: 0.5rem;
   font-size: 1.2rem;
   background-color: #3c3c3c;
   color: white;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #555555;
+  }
 }
 
 .error {
@@ -53,6 +86,18 @@ li {
 
 .delete-button {
   background-color: red;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 5px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #c50000;
+  }
 
   & svg {
     color: white;

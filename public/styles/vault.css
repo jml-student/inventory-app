@@ -9,17 +9,30 @@ body {
   color: white;
 }
 
+.title {
+  font-size: 1.8rem;
+  margin: 10px;
+}
+
 nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  width: 300px;
+  padding: 10px 20px;
+  border-top: 1px solid rgb(121, 121, 121);
+  border-bottom: 1px solid rgb(121, 121, 121);
+
+  & a {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .crypto-card {
   display: flex;
-
+  justify-content: space-between;
   align-items: center;
   width: 300px;
   border-top: 1px solid rgb(126, 126, 126);
@@ -30,33 +43,14 @@ nav {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-bottom: 20px;
 }
 
 .crypto-card h3 {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .crypto-card p {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.save-button {
-  padding: 0.5rem;
-  margin-top: 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
-  background-color: #3c3c3c;
-  color: white;
-}
-
-.save-button svg {
-  width: 20px;
-  height: 20px;
-  color: white;
 }
 
 .error {
