@@ -15,8 +15,8 @@ const init = async () => {
     await populateDb()
     console.log('Database seeded successfully')
 
-    app.listen(3000, () => {
-      console.log('Server is running on http://localhost:3000')
+    app.listen(5432, () => {
+      console.log('Server is running on http://localhost:5432')
     })
   } catch (err) {
     console.error('Error populating the database:', err)
