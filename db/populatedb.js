@@ -16,6 +16,9 @@ CREATE TABLE IF NOT EXISTS favourites (
 
 const pool = new Pool({
   connectionString: process.env.URL,
+ssl: {
+  rejectUnauthorized: false,
+},
   /*host: process.env.HOST,
   user: process.env.USER,
   password: process.env.PASSWORD,
