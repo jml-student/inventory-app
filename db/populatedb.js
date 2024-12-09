@@ -15,12 +15,12 @@ CREATE TABLE IF NOT EXISTS favourites (
 `
 
 const pool = new Pool({
-  //connectionString: process.env.DATABASE_URL,
-  host: process.env.HOST,
+  connectionString: process.env.URL,
+  /*host: process.env.HOST,
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DB,
-  port: process.env.PORT,
+  port: process.env.PORT,*/
 })
 
 async function populateDb() {
